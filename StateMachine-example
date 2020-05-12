@@ -1,0 +1,77 @@
+#include "StateMachine.h"
+
+StateMachine StMach;
+
+void setup() 
+{
+  Serial.begin(115200);
+}
+
+void loop() 
+{
+  StMach.Queue();
+}
+
+// ========== State Functions ==========
+void stateOne(void)
+{
+  Serial.println("State One");
+}
+
+void stateTwo(void)
+{
+  Serial.println("State Two");
+}
+
+void stateThree(void)
+{
+  Serial.println("State Three");
+}
+
+void stateFour(void)
+{
+  Serial.println("State Four");
+}
+
+void stateFive(void)
+{
+  Serial.println("State Five");
+}
+
+void stateSix(void)
+{
+  Serial.println("State Six");
+}
+
+void stateSeven(void)
+{
+  Serial.println("State Seven");
+}
+
+void stateEight(void)
+{
+  Serial.println("State Eight");
+}
+// ======================================
+
+void serialEvent(void) // Automatically called from loop() when data is present in serial buffer
+{
+  String command = Serial.readStringUntil('\n');  // Read until newline char. The newline char is truncated from String.
+
+  if (command.equals(F("1")))
+    StMach.addToQueue(1);
+  if (command.equals(F("2")))
+    StMach.addToQueue(2);
+  if (command.equals(F("3")))
+    StMach.addToQueue(3);
+  if (command.equals(F("4")))
+    StMach.addToQueue(4);
+  if (command.equals(F("5")))
+    StMach.addToQueue(5);
+  if (command.equals(F("6")))
+    StMach.addToQueue(6);
+  if (command.equals(F("7")))
+    StMach.addToQueue(7);
+  if (command.equals(F("8")))
+    StMach.addToQueue(8);
+}
