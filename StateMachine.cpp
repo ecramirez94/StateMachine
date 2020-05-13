@@ -105,4 +105,15 @@ void StateMachine::addToQueue(uint8_t stateNumber)  // Add a state to queue for 
   _st <<= (stateNumber - 1); // Select the state to add to queue
   _state |= _st;  // Add state to queue  
 }
+
+bool StateMachine::isInQueue(uint8_t stateNumber)
+{
+  uint8_t _st = 0b00000001;
+  _st <<= (stateNumber - 1);
+  
+  if((_state & _st) > 0)
+    return true;
+  else
+    return false;   
+}
 // =======================================
