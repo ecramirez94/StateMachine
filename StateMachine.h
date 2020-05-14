@@ -10,6 +10,7 @@ class StateMachine
     void Queue(void);
     void addToQueue(uint8_t stateNumber);
     void removeFromQueue(uint8_t stateNumber);
+    bool isInQueue(uint8_t stateNumber);
 
   private:
     volatile uint8_t _state;
